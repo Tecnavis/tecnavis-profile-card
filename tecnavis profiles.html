@@ -265,6 +265,10 @@ body {
   color: #ac1966;
   text-decoration: none;
 }
+
+body.dark-mode img {
+            filter: invert(1);
+        }
 </style>
     
 </head>
@@ -317,7 +321,7 @@ body {
 
     <div class="icon">
       <a href="#"><i class="fas fa-file-alt"></i></a>
-      <h4>brocher</h4>
+      <h4>brochure</h4>
     </div>
 
     <div class="icon">
@@ -356,6 +360,9 @@ body {
       // Replace the alert with your actual share functionality
       alert('Share functionality goes here!');
   });
+
+  document.body.classList.toggle('dark-mode', /* Your logic to determine dark mode */);
+
 </script>
 </body>
 </html>
