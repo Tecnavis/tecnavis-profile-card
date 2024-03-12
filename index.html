@@ -29,14 +29,17 @@ body {
 
 
 .customSlider {
+
   opacity: 0;
   display: none;
 }
 .customSlider + label {
   position: relative;
-  top: 35px;
-  left: 15px;
+  top: 12%;
+  left: 40%;
   cursor: pointer;
+  z-index: 1;
+  
 }
 
 .customSlider + label:before, .customSlider + label:after {
@@ -47,25 +50,25 @@ body {
 .customSlider + label:before {
   top: -90px;
   left: -60px;
-  width: 80px;
-  height: 40px;
+  width: 60px;
+  height: 30px;
   background: #ccc;
   border-radius: 20px;
   transition: background 0.75s;
 }
 .customSlider + label:after {
-  height: 34px;
-  width: 34px;
+  height: 24px;
+  width: 24px;
   top: -87px;
   left: -55px;
   border-radius: 50%;
   transition: all 0.5s;
 }
 .customSlider:checked + label:after {
-  height: 34px;
-  width: 34px;
+  height: 24px;
+  width: 24px;
   top: -87px;
-  left: -19px;
+  left: -28px;
   border-radius: 50%;
 }
 
@@ -92,10 +95,15 @@ body {
 .customSlider:checked ~ .wrapper .icon p {
   color: #666B7D;
 }
+.customSlider:checked ~ .wrapper .profile img {
+    content: url('./logos/tecnavis/tecnavis\ logo.png'); /* Replace with the new image URL */
+}
+
 
 .wrapper {
-  width: 320px;
-  height: 700px;
+  position:relative;
+  width: 90%;
+  height: 90%;
   background: #FDFEFF;
   transition: background 0.6s ease;
   border-radius: 10px;
@@ -256,7 +264,7 @@ body {
 
 .concept {
   position: absolute;
-  bottom: 25px;
+  bottom: 12px;
   color: #AAB0C4;
   font-size: 0.9em;
   font-weight: 400;
@@ -275,22 +283,22 @@ body.dark-mode img {
 <body>
   
   
-    <input id="slider" class="customSlider" type="checkbox">
+  <input id="slider" class="customSlider" type="checkbox">
   <label for="slider"></label>
 
 <div class="wrapper">
-	<div class="top-icons">
+	<!-- <div class="top-icons">
 		<i class="fas fa-long-arrow-alt-left"></i>
 		<i class="fas fa-ellipsis-v"></i>
 		<i class="far fa-heart"></i>
-	</div>
+	</div> -->
 	
 	<div class="profile">
 
 
     
 
-		<img src  ="./logo black.png"  style="height: 200px; width: 200px ; margin-left: 40px;">
+		<center><img src  ="./logos/tecnavis/logo black.png"  style="height: 200px; width: 200px ;margin-bottom: 20px; "></center>
     <!-- class="thumbnail"> -->
 		<!-- <div class="check"><i class="fas fa-check"></i></div> -->
 		<h3 class="name">TECNAVIS</h3>
@@ -301,13 +309,13 @@ body.dark-mode img {
 	
 	<div class="social-icons">
 		<div class="icon">
-			<a href="91 6282414031"><i class="fab fa-whatsapp"></i></a>            
+			<a href=" https://wa.me/916282414031"><i class="fab fa-whatsapp"></i></a>            
 			<!-- <h4>Whatsapp</h4> -->
 			<p style="margin-top: 10px;">Whatsapp</p>
 		</div>
         
 		<div class="icon">
-      <a href="tel:+06282414031"><i class  ="fas fa-phone fa-flip-horizontal"></i></a>
+      <a href="tel:+916282414031"><i class  ="fas fa-phone fa-flip-horizontal"></i></a>
       <!-- <h4>call</h4> -->
       <p style="margin-top: 10px;">Call</p>
 		</div>
@@ -318,20 +326,20 @@ body.dark-mode img {
       <p style="margin-top: 10px;">E-mail</p>
     </div>
 
-    <div class="icon">
-      <a href="#"><i class="fas fa-address-book"></i></a>
+    <div class="icon" id="downloadVCard">
+      <a href=""><i class="fas fa-address-book"></i></a>
       <!-- <h4>contact</h4> -->
       <p style="margin-top: 10px;">Contact</p>
     </div>
 
     <div class="icon">
-      <a href="#"><i class="fas fa-file-alt"></i></a>
+      <a href="https://drive.google.com/file/d/1DNE7HIGCVt4yjeIglGCz3ivyXArltDG-/view?usp=sharing"><i class="fas fa-file-alt"></i></a>
       <!-- <h4>brochure</h4> -->
       <p style="margin-top: 10px;">Brochure</p>
     </div>
 
-    <div class="icon">
-      <a href="#"><i class="fas fa-share"></i></a>
+    <div class="icon" id="shareButton">
+      <a href=""><i class="fas fa-share"></i></a>
       <!-- <h4>share</h4> -->
       <p style="margin-top: 10px;">Share</p>
     </div>
@@ -374,5 +382,53 @@ body.dark-mode img {
   document.body.classList.toggle('dark-mode', /* Your logic to determine dark mode */);
 
 </script>
+<script>
+  document.getElementById('downloadVCard').addEventListener('click', function() {
+      // vCard data
+      var vCardData = `
+BEGIN:VCARD
+VERSION:3.0
+FN:Tecnavis Web Solutions
+ORG:Tecnavis Web Solutions
+TEL:+916282414031
+EMAIL:info@tecnavis.com.com
+END:VCARD
+      `;
+
+      // Create Blob from vCard data
+      var blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
+
+      // Create a download link
+      var link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      link.download = 'contact.vcf';
+
+      // Append the link to the document
+      document.body.appendChild(link);
+
+      // Trigger the click event to initiate the download
+      link.click();
+
+      // Remove the link from the document
+      document.body.removeChild(link);
+  });
+</script>
+<script>
+        document.getElementById('shareButton').addEventListener('click', function() {
+            if (navigator.share) {
+                // Use the Web Share API
+                navigator.share({
+                    title: document.title,
+                    text: 'Check out this link:',
+                    url: window.location.href
+                })
+                .then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing:', error));
+            } else {
+                // Fallback for browsers that do not support Web Share API
+                alert('Web Share API is not supported on this browser. You can manually share the URL.');
+            }
+        });
+    </script>
 </body>
 </html>
