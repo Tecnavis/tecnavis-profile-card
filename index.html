@@ -240,7 +240,7 @@ body {
   background: linear-gradient(to bottom right, #dd1562, #e6328c);
 }
 .wrapper .social-icons .icon:nth-of-type(9) a {
-  background: linear-gradient(to bottom right, #da1919, #eb3737);
+  background: linear-gradient(to bottom right, #1f9be8, #4caae4);
 }
 
 .wrapper .social-icons .icon h4 {
@@ -265,6 +265,10 @@ body {
   color: #ac1966;
   text-decoration: none;
 }
+
+body.dark-mode img {
+            filter: invert(1);
+        }
 </style>
     
 </head>
@@ -284,7 +288,7 @@ body {
 
     
 
-		<img src  ="./logo black.png"  style="height: 140px; width: 140px ; margin-left: 80px;">
+		<img src  ="./logo black.png"  style="height: 200px; width: 200px ; margin-left: 40px;">
     <!-- class="thumbnail"> -->
 		<!-- <div class="check"><i class="fas fa-check"></i></div> -->
 		<h3 class="name">Tecnavis</h3>
@@ -295,46 +299,54 @@ body {
 	
 	<div class="social-icons">
 		<div class="icon">
-			<a href="/"><i class="fab fa-whatsapp"></i></a>            
-			<h4>Whatsapp</h4>
-			<!-- <p>Whatsapp</p> -->
+			<a href="91 6282414031"><i class="fab fa-whatsapp"></i></a>            
+			<!-- <h4>Whatsapp</h4> -->
+			<p style="margin-top: 10px;">Whatsapp</p>
 		</div>
         
 		<div class="icon">
       <a href="tel:+06282414031"><i class  ="fas fa-phone fa-flip-horizontal"></i></a>
-      <h4>call</h4>
+      <!-- <h4>call</h4> -->
+      <p style="margin-top: 10px;">Call</p>
 		</div>
 		
 		<div class="icon">
-			<a href="tecnavis@gmail.com"><i class="fas fa-envelope"></i></a>
-      <h4>E-mail</h4>
+			<a href="info@tecnavis.com"><i class="fas fa-envelope"></i></a>
+      <!-- <h4>E-mail</h4> -->
+      <p style="margin-top: 10px;">E-mail</p>
     </div>
 
     <div class="icon">
       <a href="#"><i class="fas fa-address-book"></i></a>
-      <h4>contact</h4>
+      <!-- <h4>contact</h4> -->
+      <p style="margin-top: 10px;">Contact</p>
     </div>
 
     <div class="icon">
       <a href="#"><i class="fas fa-file-alt"></i></a>
-      <h4>brocher</h4>
+      <!-- <h4>brochure</h4> -->
+      <p style="margin-top: 10px;">Brochure</p>
     </div>
 
     <div class="icon">
       <a href="#"><i class="fas fa-share"></i></a>
-      <h4>share</h4>
+      <!-- <h4>share</h4> -->
+      <p style="margin-top: 10px;">Share</p>
     </div>
     <div class="icon">
       <a href="https://www.facebook.com/profile.php?id=61555737712713&mibextid=ZbWKwL"><i class="fab fa-facebook"></i></a>
-      <h4>facebook</h4>
+      <!-- <h4>facebook</h4> -->
+      <p style="margin-top: 10px;">facebook</p>
     </div>
     <div class="icon">
       <a href="https://www.instagram.com/tecnavis/?igsh=bTgxN3NlajZuMXps"><i class="fab fa-instagram"></i></a>
-      <h4>Instagram</h4>
+      <!-- <h4>Instagram</h4> -->
+      <p style="margin-top: 10px;">Instagram</p>
     </div>
     <div class="icon">
       <a href="https://www.linkedin.com/company/tecnavis-web-solutions-pvt-ltd/mycompany/verification/"><i class="fab fa-linkedin"></i></a>
-      <h4>linkedin</h4>
+      <!-- <h4>linkedin</h4> -->
+      <p style="margin-top: 10px;">Linkedin</p>
     </div>
 	</div>
 
@@ -356,6 +368,9 @@ body {
       // Replace the alert with your actual share functionality
       alert('Share functionality goes here!');
   });
+
+  document.body.classList.toggle('dark-mode', /* Your logic to determine dark mode */);
+
 </script>
 </body>
 </html>
