@@ -393,36 +393,44 @@ body.dark-mode img {
 
 </script>
 <script>
-  document.getElementById('downloadVCard').addEventListener('click', function() {
-      // vCard data
-      var vCardData = `
-BEGIN:VCARD
-VERSION:3.0
-FN:Tecnavis Web Solutions
-ORG:Tecnavis Web Solutions
-TEL:+916282414031
-EMAIL:info@tecnavis.com.com
-END:VCARD
-      `;
-
-      // Create Blob from vCard data
-      var blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
-
-      // Create a download link
-      var link = document.createElement('a');
-      link.href = window.URL.createObjectURL(blob);
-      link.download = 'contact.vcf';
-
-      // Append the link to the document
-      document.body.appendChild(link);
-
-      // Trigger the click event to initiate the download
-      link.click();
-
-      // Remove the link from the document
-      document.body.removeChild(link);
+  document.addEventListener("DOMContentLoaded", function () {
+    var saveBtn = document.getElementById("downloadVCard");
+  
+    if (saveBtn) {
+      saveBtn.addEventListener("click", function () {
+        var contact = {
+          name: "PMNA Crane Service",
+          phone: "+919817100100",
+          email: "pmnacrs@gmail.com"
+        };
+  
+        var vcard =
+          "BEGIN:VCARD\nVERSION:3.0\nFN:" +
+          contact.name +
+          "\nTEL;TYPE=work,voice:" +
+          contact.phone +
+          "\nEMAIL:" +
+          contact.email +
+          "\nEND:VCARD";
+  
+        var blob = new Blob([vcard], { type: "text/vcard" });
+        if (navigator.msSaveBlob) {
+          // For IE and Edge
+          navigator.msSaveBlob(blob, contact.name + ".vcf");
+        } else {
+          // For other browsers
+          var link = document.createElement("a");
+          link.href = window.URL.createObjectURL(blob);
+          link.setAttribute("download", contact.name + ".vcf");
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        }
+      });
+    }
   });
-</script>
+  
+      </script>
 <script>
         document.getElementById('shareButton').addEventListener('click', function() {
             if (navigator.share) {
