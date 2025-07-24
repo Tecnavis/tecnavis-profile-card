@@ -1,442 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tecnavis web solutions</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tecnavis Web Solutions</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <style>
+    :root {
+      --bg-color: #fdfefc;
+      --text-color: #333;
+      --card-bg: #ffffff;
+      --accent-gradient: linear-gradient(to bottom right, #C90A6D, #FF48A0);
+    }
 
-<style>
+    body {
+      margin: 0;
+      font-family: "Open Sans", sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      transition: background 0.5s ease, color 0.5s ease;
+    }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    .container {
+      background: var(--card-bg);
+      border-radius: 15px;
+      padding: 20px;
+      max-width: 420px;
+      width: 90%;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: background 0.5s ease;
+    }
+
+    .logo {
+      height: 140px;
+      width: 140px;
+      border-radius: 50%;
+      object-fit: contain;
+      margin-bottom: 10px;
+      transition: filter 0.5s ease;
+    }
+
+    .name {
+      font-size: 26px;
+      font-weight: 700;
+      margin: 10px 0 5px;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .title {
+      color: #777;
+      font-size: 0.9em;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent-gradient);
+      padding: 10px 25px;
+      border-radius: 30px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.3s ease;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+   .social-icons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+  text-align: center;
 }
 
-body {
-  width: 100%;
-  height: 100vh;
+.icon {
   display: flex;
-  position: relative;
-  background: #eeeeec;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
-  font-family: "Open Sans", sans-serif;
-  font-size: 100%;
 }
 
-
-.customSlider {
-
-  opacity: 0;
-  display: none;
-}
-.customSlider + label {
-  position: relative;
-  top: 12%;
-  left: 40%;
-  cursor: pointer;
-  z-index: 1;
-  
-}
-
-.customSlider + label:before, .customSlider + label:after {
-  background: #FFFFFF;
-  position: absolute;
-  content: "";
-}
-.customSlider + label:before {
-  top: -90px;
-  left: -60px;
-  width: 60px;
-  height: 30px;
-  background: #ccc;
-  border-radius: 20px;
-  transition: background 0.75s;
-}
-.customSlider + label:after {
-  height: 24px;
-  width: 24px;
-  top: -87px;
-  left: -55px;
-  border-radius: 50%;
-  transition: all 0.5s;
-}
-.customSlider:checked + label:after {
-  height: 24px;
-  width: 24px;
-  top: -87px;
-  left: -28px;
-  border-radius: 50%;
-}
-
-.customSlider:checked ~ .wrapper {
-  color: #fff;
-  transition: background 0.6s ease;
-  background: #31394D;
-}
-.customSlider:checked ~ .wrapper .top-icons i {
-  color: #fff;
-}
-.customSlider:checked ~ .wrapper .profile .name {
-  color: #FDFEFF;
-}
-.customSlider:checked ~ .wrapper .profile .title {
-  color: #7C8097;
-}
-.customSlider:checked ~ .wrapper .profile .description {
-  color: #FDFEFF;
-}
-.customSlider:checked ~ .wrapper .icon h4 {
-  color: #FFFFFF;
-}
-.customSlider:checked ~ .wrapper .icon p {
-  color: #666B7D;
-}
-.customSlider:checked ~ .wrapper .profile img {
-    content: url('./logos/tecnavis/tecnavis\ logo.png'); /* Replace with the new image URL */
-}
-
-
-.wrapper {
-  position:relative;
-  width: 90%;
-  height: 90%;
-  background: #FDFEFF;
-  transition: background 0.6s ease;
-  border-radius: 10px;
-  padding: 20px 20px 20px 20px;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
-}
-
-
-.wrapper .top-icons i {
-  color: #080911;
-}
-.wrapper .top-icons i:nth-of-type(1) {
-  float: left;
-}
-.wrapper .top-icons i:nth-of-type(2) {
-  float: right;
-}
-.wrapper .top-icons i:nth-of-type(3) {
-  float: right;
-  padding-right: 0.8em;
-}
-.wrapper .profile {
-  margin-top: 2.2em;
-  position: relative;
-}
-.wrapper .profile:after {
-  width: 100%;
-  height: 1px;
-  content: " ";
-  display: block;
-  margin-top: 1.3em;
-  background: #E9EFF6;
-}
-.wrapper .profile .check {
-  position: absolute;
-  right: 5em;
-  bottom: 12.7em;
-}
-.wrapper .profile .check i {
-  color: #fff;
-  width: 20px;
-  height: 20px;
-  font-size: 12px;
-  line-height: 20px;
-  text-align: center;
-  border-radius: 100%;
-  background: linear-gradient(to bottom right, #C90A6D, #FF48A0);
-}
-.wrapper .profile .thumbnail {
-  width: 124px;
-  height: 124px;
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1.5em;
-  border-radius: 100%;
-  box-shadow: 0 13px 26px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.2);
-}
-.wrapper .profile .name {
-  color: #2D354A;
-  font-size: 24px;
-  font-weight: 600;
-  text-align: center;
-}
-.wrapper .profile .title {
-  color: #7C8097;
-  font-size: 0.75em;
-  font-weight: 300;
-  text-align: center;
-  padding-top: 0.5em;
-  padding-bottom: 0.7em;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-}
-.wrapper .profile .description {
-  color: #080911;
-  font-size: 14px;
-  font-weight: 300;
-  text-align: center;
-  margin-bottom: 1.3em;
-}
-.wrapper .profile .btn {
-  color: #fff;
-  width: 130px;
-  height: 42px;
-  outline: none;
-  border: none;
-  display: block;
-  cursor: pointer;
-  font-weight: 300;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 70px;
-  box-shadow: 0 13px 26px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.16);
-  background: linear-gradient(to bottom right, #C90A6D, #FF48A0);
-}
-.wrapper .social-icons {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 1.2em;
-  justify-content: space-between;
-}
-.wrapper .social-icons .icon {
-  width: 30%; /* Adjust the width as needed */
-  margin-bottom: 1.2em;
+.icon a {
   display: flex;
   align-items: center;
-  flex-direction: column;
-}
-.wrapper .social-icons .icon a {
-  color: #fff;
+  justify-content: center;
   width: 60px;
   height: 60px;
-  font-size: 28px;
-  line-height: 60px;
-  text-align: center;
-  border-radius: 30px;
-  box-shadow: 0 13px 26px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.2);
-}
-.wrapper .social-icons .icon:nth-of-type(1) a {
-  background: linear-gradient(to bottom right, #12da55, #3bd443);
-}
-.wrapper .social-icons .icon:nth-of-type(2) a {
-  background: linear-gradient(to bottom right, #5E5AEC, #3F9EFC);
-}
-.wrapper .social-icons .icon:nth-of-type(3) a {
-  background: linear-gradient(to bottom right, #bee041, #adfd70);
-}
-.wrapper .social-icons .icon:nth-of-type(4) a {
-  background: linear-gradient(to bottom right, #e9c652, #e9c652);
-}
-.wrapper .social-icons .icon:nth-of-type(5) a {
-  background: linear-gradient(to bottom right, #ee3608, #cc137f);
-}
-.wrapper .social-icons .icon:nth-of-type(6) a {
-  background: linear-gradient(to bottom right, #6567d6, #8075e7);
-}
-.wrapper .social-icons .icon:nth-of-type(7) a {
-  background: linear-gradient(to bottom right, #ce33c6, #db80bd);
-}
-.wrapper .social-icons .icon:nth-of-type(8) a {
-  background: linear-gradient(to bottom right, #dd1562, #e6328c);
-}
-.wrapper .social-icons .icon:nth-of-type(9) a {
-  background: linear-gradient(to bottom right, #1f9be8, #4caae4);
-}
-
-.wrapper .social-icons .icon h4 {
-  color: #080911;
-  font-size: 1em;
-  margin-top: 1.3em;
-  margin-bottom: 0.2em;
-}
-.wrapper .social-icons .icon p {
-  color: #666B7D;
-  font-size: 12px;
-}
-
-.concept {
-  position: absolute;
-  bottom: 12px;
-  color: #AAB0C4;
-  font-size: 0.9em;
-  font-weight: 400;
-}
-.concept a {
-  color: #ac1966;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 22px;
   text-decoration: none;
+  transition: transform 0.3s ease;
+  margin-bottom: 5px; /* Space between icon and text */
 }
 
-body.dark-mode img {
-            filter: invert(1);
-        }
-</style>
-    
+.icon p {
+  font-size: 12px;
+  margin: 0;
+  color: #555;
+  text-align: center;
+}
+    .icon a:hover {
+      transform: translateY(-5px);
+    }
+   
+
+    /* Toggle switch */
+    .theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 50px;
+      height: 26px;
+      background: #ccc;
+      border-radius: 50px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding: 2px;
+      transition: background 0.3s;
+    }
+    .theme-toggle span {
+      background: #fff;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+    .theme-toggle.active {
+      background: #333;
+    }
+    .theme-toggle.active span {
+      transform: translateX(24px);
+    }
+
+    /* Dark Mode */
+    body.dark {
+      --bg-color: #1e1e2e;
+      --text-color: #fff;
+      --card-bg: #31394D;
+    }
+    body.dark .title,
+    body.dark .name,
+    body.dark .icon p {
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
-  
-  
-  <input id="slider" class="customSlider" type="checkbox">
-  <label for="slider"></label>
+  <div class="theme-toggle" id="themeToggle"><span></span></div>
 
-<div class="wrapper">
-	<!-- <div class="top-icons">
-		<i class="fas fa-long-arrow-alt-left"></i>
-		<i class="fas fa-ellipsis-v"></i>
-		<i class="far fa-heart"></i>
-	</div> -->
-	
-	<div class="profile">
+  <div class="container">
+    <img src="./logos/tecnavis/logo black.png" alt="Tecnavis Logo" class="logo" id="logo">
+    <h3 class="name">TECNAVIS</h3>
+    <p class="title">Web Solutions Pvt Ltd</p>
+    <a href="https://www.tecnavis.in" class="btn">KNOW MORE</a>
 
-
-    
-
-		<center><img src  ="./logos/tecnavis/logo black.png"  style="height: 200px; width: 200px ;margin-bottom: 10px; "></center>
-    <!-- class="thumbnail"> -->
-		<!-- <div class="check"><i class="fas fa-check"></i></div> -->
-		<h3 class="name" style="font-weight: 800;">TECNAVIS</h3>
-		<p class="title">Web solutions pvt ltd</p>
-		<!-- <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque aliquam aliquid porro!</p> -->
-		<button type="button" class="btn"> <a style="text-decoration: none; font-weight: 800; color: #f5efef;" href="https://www.tecnavis.com">  KNOW MORE</button></a>
-	</div>
-	
-	<div class="social-icons">
-		<div class="icon">
-			<a href=" https://wa.me/916282414031"><i class="fab fa-whatsapp"></i></a>            
-			<!-- <h4>Whatsapp</h4> -->
-			<p style="margin-top: 10px;">Whatsapp</p>
-		</div>
-        
-		<div class="icon">
-      <a href="tel:+916282414031"><i class  ="fas fa-phone fa-flip-horizontal"></i></a>
-      <!-- <h4>call</h4> -->
-      <p style="margin-top: 10px;">Call</p>
-		</div>
-		
-		<div class="icon">
-			<a href="mailto:info@tecnavis.com"><i class="fas fa-envelope"></i></a>
-      <!-- <h4>E-mail</h4> -->
-      <p style="margin-top: 10px;">E-mail</p>
+    <div class="social-icons">
+      <div class="icon">
+        <a href="https://wa.me/916282414031" style="background:linear-gradient(to bottom right, #12da55, #3bd443);"><i class="fab fa-whatsapp"></i></a>
+        <p>Whatsapp</p>
+      </div>
+      <div class="icon">
+        <a href="tel:+916282414031" style="background:linear-gradient(to bottom right, #5E5AEC, #3F9EFC);"><i class="fas fa-phone fa-flip-horizontal"></i></a>
+        <p>Call</p>
+      </div>
+      <div class="icon">
+        <a href="mailto:info@tecnavis.in" style="background:linear-gradient(to bottom right, #bee041, #adfd70);"><i class="fas fa-envelope"></i></a>
+        <p>E-mail</p>
+      </div>
+      <div class="icon" id="downloadVCard">
+        <a href="#" style="background:linear-gradient(to bottom right, #e9c652, #e9c652);"><i class="fas fa-address-book"></i></a>
+        <p>Contact</p>
+      </div>
+      <div class="icon">
+        <a href="https://drive.google.com/file/d/1DNE7HIGCVt4yjeIglGCz3ivyXArltDG-/view?usp=sharing" style="background:linear-gradient(to bottom right, #ee3608, #cc137f);"><i class="fas fa-file-alt"></i></a>
+        <p>Brochure</p>
+      </div>
+      <div class="icon" id="shareButton">
+        <a href="#" style="background:linear-gradient(to bottom right, #6567d6, #8075e7);"><i class="fas fa-share"></i></a>
+        <p>Share</p>
+      </div>
+      <div class="icon">
+        <a href="https://www.facebook.com/profile.php?id=61555737712713&mibextid=ZbWKwL" style="background:linear-gradient(to bottom right, #ce33c6, #db80bd);"><i class="fab fa-facebook"></i></a>
+        <p>Facebook</p>
+      </div>
+      <div class="icon">
+        <a href="https://www.instagram.com/tecnavis/?igsh=bTgxN3NlajZuMXps" style="background:linear-gradient(to bottom right, #dd1562, #e6328c);"><i class="fab fa-instagram"></i></a>
+        <p>Instagram</p>
+      </div>
+      <div class="icon">
+        <a href="https://www.linkedin.com/company/tecnavis-web-solutions-pvt-ltd/mycompany/verification/" style="background:linear-gradient(to bottom right, #1f9be8, #4caae4);"><i class="fab fa-linkedin"></i></a>
+        <p>Linkedin</p>
+      </div>
     </div>
+  </div>
 
-    <div class="icon" id="downloadVCard">
-      <a href=""><i class="fas fa-address-book"></i></a>
-      <!-- <h4>contact</h4> -->
-      <p style="margin-top: 10px;">Contact</p>
-    </div>
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const logo = document.getElementById('logo');
 
-    <div class="icon">
-      <a href="https://drive.google.com/file/d/1DNE7HIGCVt4yjeIglGCz3ivyXArltDG-/view?usp=sharing"><i class="fas fa-file-alt"></i></a>
-      <!-- <h4>brochure</h4> -->
-      <p style="margin-top: 10px;">Brochure</p>
-    </div>
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      themeToggle.classList.toggle('active');
 
-    <div class="icon" id="shareButton">
-      <a href=""><i class="fas fa-share"></i></a>
-      <!-- <h4>share</h4> -->
-      <p style="margin-top: 10px;">Share</p>
-    </div>
-    <div class="icon">
-      <a href="https://www.facebook.com/profile.php?id=61555737712713&mibextid=ZbWKwL"><i class="fab fa-facebook"></i></a>
-      <!-- <h4>facebook</h4> -->
-      <p style="margin-top: 10px;">facebook</p>
-    </div>
-    <div class="icon">
-      <a href="https://www.instagram.com/tecnavis/?igsh=bTgxN3NlajZuMXps"><i class="fab fa-instagram"></i></a>
-      <!-- <h4>Instagram</h4> -->
-      <p style="margin-top: 10px;">Instagram</p>
-    </div>
-    <div class="icon">
-      <a href="https://www.linkedin.com/company/tecnavis-web-solutions-pvt-ltd/mycompany/verification/"><i class="fab fa-linkedin"></i></a>
-      <!-- <h4>linkedin</h4> -->
-      <p style="margin-top: 10px;">Linkedin</p>
-    </div>
-	</div>
+      logo.src = document.body.classList.contains('dark') 
+        ? './logos/tecnavis/tecnavis logo.png' 
+        : './logos/tecnavis/logo black.png';
+    });
 
+    document.getElementById('shareButton').addEventListener('click', function (e) {
+      e.preventDefault();
+      if (navigator.share) {
+        navigator.share({
+          title: 'Tecnavis Web Solutions',
+          text: 'Check out Tecnavis Web Solutions!',
+          url: window.location.href
+        }).catch(console.error);
+      } else {
+        alert('Sharing not supported in this browser.');
+      }
+    });
 
+    document.getElementById("downloadVCard").addEventListener("click", function (e) {
+      e.preventDefault();
+      const vCardData =
+`BEGIN:VCARD
+VERSION:3.0
+FN:Tecnavis Web Solutions
+ORG:Tecnavis Web Solutions Pvt Ltd
+TEL:+916282414031
+EMAIL:info@tecnavis.com
+URL:https://www.tecnavis.in
+END:VCARD`;
 
-    
-</div>
-
-<div class="concept">concept by 
-	<a href="https://www.tecnavis.com" target="_blank">
-		<i class="fab fa-dribbble"></i> Tecnavis web solutions
-	</a>
-</div>
-
-
-<script>
-  // Add a click event listener to the share icon
-  document.getElementById('shareIcon').addEventListener('click', function() {
-      // Replace the alert with your actual share functionality
-      alert('Share functionality goes here!');
-  });
-
-  document.body.classList.toggle('dark-mode', /* Your logic to determine dark mode */);
-
-</script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    var saveBtn = document.getElementById("downloadVCard");
-  
-    if (saveBtn) {
-      saveBtn.addEventListener("click", function () {
-        var contact = {
-          name: "Tecnavis web solutions",
-          phone: "+916282414031",
-          email: "info@tecnavis.com"
-        };
-  
-        var vcard =
-          "BEGIN:VCARD\nVERSION:3.0\nFN:" +
-          contact.name +
-          "\nTEL;TYPE=work,voice:" +
-          contact.phone +
-          "\nEMAIL:" +
-          contact.email +
-          "\nEND:VCARD";
-  
-        var blob = new Blob([vcard], { type: "text/vcard" });
-        if (navigator.msSaveBlob) {
-          // For IE and Edge
-          navigator.msSaveBlob(blob, contact.name + ".vcf");
-        } else {
-          // For other browsers
-          var link = document.createElement("a");
-          link.href = window.URL.createObjectURL(blob);
-          link.setAttribute("download", contact.name + ".vcf");
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-        }
-      });
-    }
-  });
-  
-      </script>
-<script>
-        document.getElementById('shareButton').addEventListener('click', function() {
-            if (navigator.share) {
-                // Use the Web Share API
-                navigator.share({
-                    title: document.title,
-                    text: 'Check out this link:',
-                    url: window.location.href
-                })
-                .then(() => console.log('Successful share'))
-                .catch((error) => console.log('Error sharing:', error));
-            } else {
-                // Fallback for browsers that do not support Web Share API
-                alert('Web Share API is not supported on this browser. You can manually share the URL.');
-            }
-        });
-    </script>
+      const blob = new Blob([vCardData], { type: 'text/vcard' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = "Tecnavis_Contact.vcf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  </script>
 </body>
 </html>
